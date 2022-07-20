@@ -11,7 +11,7 @@ source:
   sha256: 8909969c8ea458eadd033b58c3bd7334f34c94c2f038e071a733da7fdd644a99
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -21,7 +21,7 @@ requirements:
     - python >=3.6
   run:
     - attrs
-    - pyspark <3.1.0
+    - pyspark
     - python >=3.6
     - shapely
 
