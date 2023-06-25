@@ -1,11 +1,11 @@
-About apache-sedona
-===================
+About apache-sedona-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/apache-sedona-feedstock/blob/main/LICENSE.txt)
 
 Home: https://sedona.apache.org
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/apache-sedona-feedstock/blob/main/LICENSE.txt)
 
 Summary: Apache Sedona is a cluster computing system for processing large-scale spatial data
 
