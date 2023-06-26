@@ -12,18 +12,21 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - {{ compiler('c') }}
   host:
     - pip
-    - python >=3.6
+    - python
   run:
     - attrs
     - pyspark
-    - python >=3.6
-    - shapely
+    - python
+    - shapely >=1.7.0, <2.0
 
 test:
   imports:
