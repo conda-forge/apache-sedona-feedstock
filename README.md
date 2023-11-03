@@ -296,5 +296,6 @@ Feedstock Maintainers
 =====================
 
 * [@dsangillo](https://github.com/dsangillo/)
+* [@jiayuasu](https://github.com/jiayuasu/)
 * [@mxr-conda](https://github.com/mxr-conda/)
 
