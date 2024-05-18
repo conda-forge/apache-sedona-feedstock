@@ -27,7 +27,8 @@ requirements:
     - attrs
     - pyspark
     - python
-    - shapely >=1.7.0, <2.0
+    - shapely >=1.7.0
+    - rasterio >=1.2.10
 
 test:
   imports:
