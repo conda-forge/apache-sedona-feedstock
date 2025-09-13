@@ -1,5 +1,5 @@
 {% set name = "apache-sedona" %}
-{% set version = "1.7.2" %}
+{% set version = "1.8.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 808f12a56140a5e4094f9a02522142313aded5b44633035bc65c31a91e526214
+  sha256: 560d176b8ba6fd5b9a55d5c780eb9798a99e309b1253737f9576cad0a8f17b05
 
 build:
   number: 0
