@@ -20,9 +20,14 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
+    - setuptools >=68.0.0                    # [python_impl == "cpython" and python_impl_version >= "3.13"]
+    - setuptools                             # [python_impl != "cpython" or python_impl_version < "3.13"]
+    - wheel
   host:
     - pip
     - python
+    - setuptools >=68.0.0                    # [python_impl == "cpython" and python_impl_version >= "3.13"]
+    - setuptools                             # [python_impl != "cpython" or python_impl_version < "3.13"]
   run:
     - attrs
     - pyspark
