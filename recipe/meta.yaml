@@ -3,7 +3,7 @@
 
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}-split
   version: {{ version }}
 
 source:
@@ -11,42 +11,56 @@ source:
   sha256: cd195a86e3b68e8ccbe8dd66333d7c2403609937f4d3c13c5a627779eec6b7ce
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
 
-requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - setuptools >=68.0.0                    # [py>=313]
-    - setuptools                             # [py<313]
-    - wheel
-  host:
-    - pip
-    - python
-    - setuptools >=68.0.0                    # [py>=313]
-    - setuptools                             # [py<313]
-  run:
-    - attrs
-    - pyspark
-    - python
-    - shapely >=1.7.0
-    - rasterio >=1.2.10
-    # Explicit dependencies to ensure compatible versions for rasterio/GDAL stack
-    - libxml2
-    - glib
-    - pcre2
+outputs:
+  - name: apache-sedona-core
+    script: build_apache_sedona_core.sh   # [unix]
+    script: bld_apache_sedona_core.bat    # [win]
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - {{ compiler('c') }}
+        - {{ stdlib("c") }}
+      host:
+        - pip
+        - python
+        - setuptools >=68.0.0
+        - wheel
+      run:
+        - python
+        - attrs
+        - shapely >=1.7.0
+    test:
+      imports:
+        - sedona
+      commands:
+        - pip check
+      requires:
+        - pip
 
-test:
-  imports:
-    - sedona
-    - sedona.core
-  commands:
-    - pip check
-  requires:
-    - pip
+  - name: apache-sedona
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('apache-sedona-core', exact=True) }}
+        - python
+        - pyspark
+        - rasterio >=1.2.10
+        # Explicit dependencies to ensure compatible versions for rasterio/GDAL stack
+        - libxml2
+        - glib
+        - pcre2
+    test:
+      imports:
+        - sedona
+        - sedona.core
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
   home: https://sedona.apache.org
