@@ -1,5 +1,5 @@
 {% set name = "apache-sedona" %}
-{% set version = "1.9.0" %}
+{% set version = "1.9.1" %}
 
 
 package:
@@ -8,15 +8,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: cd195a86e3b68e8ccbe8dd66333d7c2403609937f4d3c13c5a627779eec6b7ce
+  sha256: 2e24cfa160e34d8f5e47e3e7d6be56536259169da41c755b978173612f7318c6
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: apache-sedona-core
-    script: build_apache_sedona_core.sh   # [unix]
-    script: bld_apache_sedona_core.bat    # [win]
+    script: build_apache_sedona_core.sh  # [unix]
+    script: bld_apache_sedona_core.bat  # [win]
     requirements:
       build:
         - python                                 # [build_platform != target_platform]
