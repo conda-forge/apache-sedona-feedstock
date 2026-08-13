@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 2e24cfa160e34d8f5e47e3e7d6be56536259169da41c755b978173612f7318c6
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: apache-sedona-core
