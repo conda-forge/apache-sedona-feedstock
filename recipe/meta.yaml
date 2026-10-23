@@ -11,7 +11,7 @@ source:
   sha256: 2e24cfa160e34d8f5e47e3e7d6be56536259169da41c755b978173612f7318c6
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: apache-sedona-core
